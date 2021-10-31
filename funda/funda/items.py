@@ -5,6 +5,7 @@
 
 import scrapy
 
+
 class FundaItem(scrapy.Item):
     link = scrapy.Field()
 
@@ -41,5 +42,3 @@ class FundaItem(scrapy.Item):
     facilities = scrapy.Field()
 
     last_updated = scrapy.Field(serializer=str)
-
-
