@@ -8,6 +8,18 @@
 from itemadapter import ItemAdapter
 
 
-class FundaPipeline:
+import json
+
+
+class JsonWriterPipeline(object):
+
+    def open_spider(self, spider):
+        self.file = open('houses.json', 'a+')
+
+    def close_spider(self, spider):
+        self.file.close()
+
     def process_item(self, item, spider):
+        book = json.dumps(dict(item)) + "\n"
+        self.file.write(book)
         return item
